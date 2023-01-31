@@ -1,4 +1,4 @@
-// console.log(arguments);
+//#$$$!! console.log(arguments);
 
 function sum(a, b) {
   console.log(arguments, 'arguments in function declaration');
