@@ -26,3 +26,7 @@ function name(id, name) {
     },
   });
 }
+
+//~! one edge case
+
+//~> when writable is true, it can set to false even if configurable is false(you can redifine the property)
