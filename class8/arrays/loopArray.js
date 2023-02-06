@@ -33,3 +33,11 @@ console.log('');
 array.forEach((value) => {
   console.log(value);
 });
+
+// Actual difference is- .map creates a new execution context for every value in the array and executes the callback - This is a heavy operation
+// While for-of prints taking in the consideration the length of the array, even if the array is sparse, it will try to evaluate every index and else will return undefined
+
+// For ex. -
+// arr = [1, 2, 3];
+// arr.length = 10;
+// map will execute it for 1,2,3 and returns the new array, while for-of will consider length of the array and will execute taking all the enumerable properties
