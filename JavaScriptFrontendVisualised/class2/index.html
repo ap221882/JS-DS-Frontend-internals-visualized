@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+  <title>DOM Heirarchy</title>
+</head>
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  h1.heading {
+    color: blue;
+  }
+</style>
+
+<body>
+  <main>
+    <h1 style="color: red">DOM Hierarchy</h1>
+    <h1>DOM Hierarchy</h1>
+    <h1 class="heading">DOM Hierarchy</h1>
+  </main>
+  <div class="container">
+    <section>
+      <h1>Login Page</h1>
+      <article>
+        <label for="username">Username</label>
+        <input type="text" id="username" />
+      </article>
+      <article>
+        <label for="password">password</label>
+        <input type="password" id="password" />
+      </article>
+      <ajay class="button-container">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </ajay>
+    </section>
+    <div class="support_message">If not able to Login, send support mail</div>
+  </div>
+  <p>Copyright (c)2023</p>
+  <footer>Created by ❤️ in India</footer>
+  <script>
+    const heading = document.getElementsByTagName('h1');
+    console.dir(heading, 'heading');
+  </script>
+</body>

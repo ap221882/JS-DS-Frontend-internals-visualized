@@ -1,0 +1,83 @@
+/* > CSS is called Cascading bcoz of its cascading effect when it prioritizes the styles according to the place they are provided. */
+/* > INLINE CSS > STYLE-TAG/IN-STYLE-TAG CSS > CSS FROM ANOTHER STYLESHEET */
+
+h1 {
+  color: brown;
+}
+
+/*~# CSS SELECTORS  */
+/*~^ 1. a , b  */
+/*% b at any level of a */
+/*~^ 2. a > b  */
+/*% b direct child of a */
+/*~^ 3. a + b  */
+/*% b sibling of a, just after a */
+/*~^ 4. a ~ b  */
+/*% b sibling of a, need not to be just after a */
+/*~^ 5. a , b  */
+/*% select both a and b */
+
+/*~* TASK  */
+.container {
+  min-height: 100vh;
+}
+
+.container > section {
+  border: 1px solid red;
+}
+
+.container + footer {
+  background-color: red;
+}
+
+.container ~ p {
+  background-color: aqua;
+}
+
+label,
+input {
+  background-color: gray;
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* 
+> MY STYLES
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url('../sanjay_sir.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
