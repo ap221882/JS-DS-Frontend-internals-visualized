@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuerySelector</title>
+  </head>
+  <body>
+    <div id="main">
+      <ul>
+        <li class="static">C++</li>
+        <li class="static">Python</li>
+        <li class="static">JS</li>
+        <li class="static">Dart</li>
+        <li class="static">C</li>
+      </ul>
+    </div>
+    <script>
+      const ul = document.querySelector('#main > ul');
+      const evenChildren = document.querySelectorAll(
+        '#main > ul > li:nth-child(even)'
+      );
+      const allStatics = document.getElementsByClassName('static');
+      console.log(ul, 'ul');
+      console.log(evenChildren, 'even children');
+      console.log(allStatics, 'allStatics');
+    </script>
+  </body>
+</html>

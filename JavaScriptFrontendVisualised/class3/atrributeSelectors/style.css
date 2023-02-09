@@ -1,0 +1,23 @@
+a[target='_blank'] {
+  color: blue;
+}
+
+/* ~^ Those which start with http */
+[href^='http'] {
+  color: red;
+}
+
+/* ~^ Those which end with org */
+[href$='org'] {
+  color: rgb(61, 61, 56);
+}
+
+/* ~^ Those which contain "info" as a separate word*/
+[value~='info'] {
+  background-color: rgb(72, 255, 0);
+}
+
+/* ~^ Those which contain the string but */
+[id*='but'] {
+  background-color: brown;
+}
