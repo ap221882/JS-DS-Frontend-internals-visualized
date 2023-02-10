@@ -1,0 +1,28 @@
+#todo-div {
+  margin: 2rem auto;
+  max-width: 30rem;
+  border: 1px solid rgb(166, 139, 139);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px red;
+  background-color: teal;
+}
+
+#todo-div > h1 {
+  font-size: 2rem;
+  padding: 0.875rem;
+  color: white;
+}
+
+#todo-div > div > input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+#todo-div > div > button {
+  display: block;
+  margin: 0.85rem auto;
+  border-radius: 10px;
+  padding: 0.475rem 0.875rem;
+}
