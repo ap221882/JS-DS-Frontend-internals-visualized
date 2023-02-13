@@ -1,13 +1,7 @@
 'use strict';
 
-console.log('Script started executing');
-
 //~> LOAD AFTER INITIAL HTML IS LOADED
 document.addEventListener('DOMContentLoaded', () => {
-  // const button = document.querySelector('#todo-div > div>button');
-  // const input = document.querySelector('#todo-ul');
-  // const todoList = document.querySelector('#todo-list>div>ul');
-
   //> Initial HTML
   const root = document.querySelector('#root');
   root.insertAdjacentHTML(
