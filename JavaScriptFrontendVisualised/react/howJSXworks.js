@@ -27,12 +27,12 @@ const reactElement = (
     <Pujarini id='react' key='react' children='Hello'>
       world
     </Pujarini>
-    <RenderedElement />
+    {/* <RenderedElement /> */}
   </>
 );
 
 React.createElement(
-  <pujarini />,
+  Pujarini,
   {
     id: 'react',
     key: 'react',

@@ -1,0 +1,56 @@
+#root {
+  margin: 2rem auto;
+  max-width: 30rem;
+  border: 1px solid rgb(166, 139, 139);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px red;
+  background-color: teal;
+}
+
+#root > h1 {
+  font-size: 2rem;
+  padding: 0.875rem;
+  color: white;
+}
+
+#root > input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.todo-item > input:checked + label {
+  text-decoration: line-through;
+}
+
+#root > button {
+  display: block;
+  margin: 0.85rem auto;
+  border-radius: 10px;
+  padding: 0.475rem 0.875rem;
+}
+
+#todo-ul {
+  font-size: 1.5rem;
+  color: antiquewhite;
+  font-weight: 800;
+  margin: 0.875rem auto;
+  max-width: 10rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item > input {
+  height: 0.5rem;
+}
+
+.delete-todo {
+  padding: 0.1rem 0.5rem;
+  color: red;
+  background-color: teal;
+  border: none;
+}
