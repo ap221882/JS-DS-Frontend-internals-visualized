@@ -27,7 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
       todoList.insertAdjacentHTML('beforeend', todoItem);
       input.value = '';
     }
+
+    //> Attaching delete event listener to all list items
+
+    const todoItemsDeleteBtn = document.querySelectorAll('.delete-todo');
+    todoItemsDeleteBtn.forEach(
+      (todoitem) => (todoitem.onclick = () => console.log('clicked'))
+    );
   };
+
+  const deleteTodo = (labelString) => {};
 
   //> Attaching listener to add TODO item
   const appendTodoButton = document.querySelector('#append-todo-btn');
