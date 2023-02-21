@@ -23,8 +23,8 @@ class SinglyLinkedList {
   add(value: number) {
     const spot = new MyNode(value);
 
-    console.log(this.head, 'head');
-    console.log(this.tail, 'tail');
+    // console.log(this.head, 'head');
+    // console.log(this.tail, 'tail');
     //~* If this is the first time we are creating node, head and tail point to same value
     if (this.head === null) {
       this.head = spot;
