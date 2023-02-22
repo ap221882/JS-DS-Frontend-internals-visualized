@@ -30,20 +30,41 @@ class DoubleLinkedList {
       this.tail.next = spot;
       //% spot.previous is assigned to the previous node(that itself is a node having .value to access)
       spot.previous = this.tail /* this.tail is also a value */;
+      this.tail = spot;
     }
   }
 
   printForward() {
     //~? current will be undefined if it is not in the linkedlist
     for (let current = this.head; current; current = current.next) {
+      // console.log(current);
+
       console.log(current.value);
+    }
+  }
+
+  printBackward() {
+    for (let current = this.tail; current; current = current.previous) {
+      console.log(current.value);
+    }
+  }
+
+  deleteAValue(value: number) {
+    for (let current = this.head; current != null; current = current.next) {
+      if (current.value === value) {
+        current.previous.next = current.next;
+        current.next.previous = current.previous;
+      }
     }
   }
 }
 
 const myDoubleList = new DoubleLinkedList();
 
+myDoubleList.add(1);
+myDoubleList.add(2);
 myDoubleList.add(3);
-myDoubleList.add(3);
-myDoubleList.add(3);
+myDoubleList.deleteAValue(2);
+myDoubleList.add(4);
 myDoubleList.printForward();
+myDoubleList.printBackward();
