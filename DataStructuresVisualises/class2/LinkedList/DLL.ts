@@ -55,17 +55,29 @@ class DoubleLinkedList {
     //~> LL has always access to beginning and ending node
     for (let current = this.head; current != null; current = current.next) {
       if (current.value === value) {
+        //~! THE ONLY VALUE
+        if (current == this.head && current == this.tail) {
+          this.head = null;
+          this.tail = null;
+          return true;
+        }
+
+        //~! INITIAL VALUE
         if (current == this.head) {
           this.head = this.head.next;
           this.head.previous = null;
           //* We are returning early so that code after this is not executed
           return true;
         }
+
+        //~! LAST VALUE
         if (current == this.tail) {
           this.tail = this.tail.previous;
           this.tail.next = null;
           return true;
         }
+
+        //~! MIDDLE VALUE
         current.previous.next = current.next;
         current.next.previous = current.previous;
         return true;
@@ -80,6 +92,8 @@ myDoubleList.add(1);
 myDoubleList.add(2);
 myDoubleList.add(3);
 myDoubleList.deleteAValue(3);
+myDoubleList.deleteAValue(2);
+myDoubleList.deleteAValue(1);
 myDoubleList.add(4);
 // myDoubleList.printForward();
 myDoubleList.printBackward();
