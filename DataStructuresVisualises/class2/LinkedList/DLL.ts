@@ -11,6 +11,8 @@ class DoubleNode {
 }
 
 //~# SPOT, HEAD, TAIL ALL ARE NODES AND HAVE PREVIOUS, NEXT, VALUE ATTACHED TO THEM
+
+//~! HEAD AND TAIL AND SPOT REFERENCE TO EACH OTHER THROUGH THE POINTER - PREVIOUS AND NEXT
 class DoubleLinkedList {
   head: DoubleNode | null;
   tail: DoubleNode | null;
@@ -50,10 +52,23 @@ class DoubleLinkedList {
   }
 
   deleteAValue(value: number) {
+    //~> LL has always access to beginning and ending node
     for (let current = this.head; current != null; current = current.next) {
       if (current.value === value) {
+        if (current == this.head) {
+          this.head = this.head.next;
+          this.head.previous = null;
+          //* We are returning early so that code after this is not executed
+          return true;
+        }
+        if (current == this.tail) {
+          this.tail = this.tail.previous;
+          this.tail.next = null;
+          return true;
+        }
         current.previous.next = current.next;
         current.next.previous = current.previous;
+        return true;
       }
     }
   }
@@ -64,7 +79,7 @@ const myDoubleList = new DoubleLinkedList();
 myDoubleList.add(1);
 myDoubleList.add(2);
 myDoubleList.add(3);
-myDoubleList.deleteAValue(2);
+myDoubleList.deleteAValue(3);
 myDoubleList.add(4);
-myDoubleList.printForward();
+// myDoubleList.printForward();
 myDoubleList.printBackward();
