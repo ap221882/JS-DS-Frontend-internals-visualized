@@ -24,12 +24,21 @@ class SentinentalLinkedList {
 
   //~* It is worth noting that IN assignment operator (=), RHS is indicating node, LHS is the pointer to node (next or previous)
 
-  addANode(value: number) {
+  addANodeToBack(value: number) {
     const spot = new SentinentalNode(value);
     spot.next = this.tail;
     spot.prev = this.tail.prev;
     this.tail.prev.next = spot;
     this.tail.prev = spot;
+  }
+
+  addANodeToFront(value: number) {
+    const spot = new SentinentalNode(value);
+    spot.prev = this.head;
+    spot.next = this.head.next;
+
+    spot.prev.next = spot;
+    spot.next.prev = spot;
   }
 
   printForward() {
@@ -54,8 +63,8 @@ class SentinentalLinkedList {
 }
 
 const senti = new SentinentalLinkedList();
-senti.addANode(3);
-senti.addANode(4);
-senti.addANode(78);
+senti.addANodeToFront(3);
+senti.addANodeToFront(4);
+senti.addANodeToFront(78);
 senti.printForward();
 senti.printBackward();
