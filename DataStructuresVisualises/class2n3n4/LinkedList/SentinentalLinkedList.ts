@@ -58,6 +58,39 @@ class SentinentalLinkedList {
     }
   }
 
+  insertAfter(insertedAfter: number, insertValue: number) {
+    for (
+      let current = this.head.next;
+      current != this.tail;
+      current = current.next
+    ) {
+      if (insertedAfter === current.value) {
+        const spot = new SentinentalNode(insertValue);
+        spot.prev = current;
+        spot.next = current.next;
+        spot.next.prev = spot;
+        spot.prev.next = spot;
+        return true;
+      }
+    }
+  }
+
+  insertBefore(insertedBefore: number, insertValue: number) {
+    for (
+      let current = this.head.next;
+      current != this.tail;
+      current = current.next
+    ) {
+      if (insertedBefore == current.value) {
+        const spot = new SentinentalNode(insertValue);
+        spot.prev = current.prev;
+        spot.next = current;
+        spot.next.prev = spot;
+        spot.prev.next = spot;
+      }
+    }
+  }
+
   printForward() {
     for (
       let current = this.head.next;
@@ -82,7 +115,9 @@ class SentinentalLinkedList {
 const senti = new SentinentalLinkedList();
 senti.addANodeToFront(3);
 senti.addANodeToFront(4);
+// senti.insertAfter(4, 99);
+senti.insertBefore(4, 99);
 senti.addANodeToFront(78);
-senti.printBackward();
-senti.deleteANode(78);
 senti.printForward();
+// senti.printBackward();
+// senti.deleteANode(78);
