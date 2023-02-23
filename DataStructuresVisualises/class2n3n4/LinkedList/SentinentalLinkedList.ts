@@ -10,6 +10,8 @@ class SentinentalNode {
   }
 }
 
+//~> SentinentalList have a head and a tail as default and we add values to it. Values can be deleted and added from both ends hence
+
 class SentinentalLinkedList {
   head: null | SentinentalNode;
   tail: null | SentinentalNode;
