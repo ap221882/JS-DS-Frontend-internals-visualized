@@ -121,8 +121,11 @@ const senti = new SentinentalLinkedList();
 senti.addANodeToFront(3);
 senti.addANodeToFront(5);
 senti.addANodeToFront(4);
+
 senti.insertAfter(4, 99);
+
 senti.insertBefore(4, 99);
+
 // senti.addANodeToFront(78);
 // senti.printForward();
 // senti.printBackward();
