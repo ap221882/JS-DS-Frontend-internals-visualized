@@ -24,22 +24,47 @@ class SentinentalLinkedList {
 
   //~# It is worth noting that IN assignment operator (=), RHS is indicating node, LHS is the pointer to node (next or previous)                       ;
 
-  addANodeToBack(value: number) {
+  search(value: number) {
+    for (
+      let current = this.head.next;
+      current != this.tail;
+      current = current.next
+    ) {
+      if (value == current.value) {
+        return current;
+      }
+    }
+    return null;
+  }
+
+  insertValue(node: SentinentalNode, value: number) {
+    // const searchedNode = this.search(value);
+
     const spot = new SentinentalNode(value);
-    spot.next = this.tail;
-    spot.prev = this.tail.prev;
-    this.tail.prev.next = spot;
-    this.tail.prev = spot;
+
+    spot.next = node.next;
+    spot.prev = node;
+
+    spot.next.prev = spot.prev.next = spot;
+  }
+
+  addANodeToBack(value: number) {
+    this.insertValue(this.tail.prev, value);
   }
 
   //~^ MAN CLIMBING THE WALL                        ;
   addANodeToFront(value: number) {
-    const spot = new SentinentalNode(value);
-    spot.prev = this.head;
-    spot.next = this.head.next;
+    this.insertValue(this.head, value);
+  }
 
-    spot.prev.next = spot;
-    spot.next.prev = spot;
+  insertAfter(insertedAfter: number, insertValue: number) {
+    const searchedNode = this.search(insertedAfter);
+    this.insertValue(searchedNode, insertValue);
+  }
+
+  insertBefore(insertedBefore: number, insertValue: number) {
+    const searchedNode = this.search(insertedBefore);
+    this.insertValue(searchedNode.prev, insertValue);
   }
 
   deleteANode(value: number) {
@@ -58,38 +83,18 @@ class SentinentalLinkedList {
     }
   }
 
-  insertAfter(insertedAfter: number, insertValue: number) {
+  removeAllOccurrences = (value: number) => {
     for (
       let current = this.head.next;
       current != this.tail;
       current = current.next
     ) {
-      if (insertedAfter === current.value) {
-        const spot = new SentinentalNode(insertValue);
-        spot.prev = current;
-        spot.next = current.next;
-        spot.next.prev = spot;
-        spot.prev.next = spot;
-        return true;
+      if (current.value == value) {
+        current.next.prev = current.prev;
+        current.prev.next = current.next;
       }
     }
-  }
-
-  insertBefore(insertedBefore: number, insertValue: number) {
-    for (
-      let current = this.head.next;
-      current != this.tail;
-      current = current.next
-    ) {
-      if (insertedBefore == current.value) {
-        const spot = new SentinentalNode(insertValue);
-        spot.prev = current.prev;
-        spot.next = current;
-        spot.next.prev = spot;
-        spot.prev.next = spot;
-      }
-    }
-  }
+  };
 
   printForward() {
     for (
@@ -114,10 +119,14 @@ class SentinentalLinkedList {
 
 const senti = new SentinentalLinkedList();
 senti.addANodeToFront(3);
+senti.addANodeToFront(5);
 senti.addANodeToFront(4);
-// senti.insertAfter(4, 99);
+senti.insertAfter(4, 99);
 senti.insertBefore(4, 99);
-senti.addANodeToFront(78);
-senti.printForward();
+// senti.addANodeToFront(78);
+// senti.printForward();
 // senti.printBackward();
 // senti.deleteANode(78);
+// senti.removeAllOccurrences(4);
+
+senti.printForward();
