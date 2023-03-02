@@ -1,6 +1,8 @@
+type Nullable<T> = null | T;
+
 class BSTNode {
-  left: null | BSTNode;
-  right: null | BSTNode;
+  left: Nullable<BSTNode>;
+  right: Nullable<BSTNode>;
   value: number;
   constructor(value: number) {
     this.left = null;
@@ -13,7 +15,11 @@ class Tree {
   root: null | BSTNode = null;
   level = 0;
 
-  addNode(node: BSTNode, value: number) {
+  constructor(...values: number[]) {
+    values.forEach((value) => this._addNode(this.root, value));
+  }
+
+  _addNode(node: BSTNode, value: number) {
     //! ending condition of recursion
     if (node == null) {
       return new BSTNode(value);
@@ -21,14 +27,14 @@ class Tree {
 
     //! append greater values to right and lesser values to left
     if (node.value < value) {
-      node.right = this.addNode(node.right, value);
+      node.right = this._addNode(node.right, value);
     } else if (node.value > value) {
-      node.left = this.addNode(node.left, value);
+      node.left = this._addNode(node.left, value);
     }
     return node;
   }
 
-  removeNode(node: BSTNode | null, value: number): BSTNode | null {
+  removeNode(node: Nullable<BSTNode>, value: number): Nullable<BSTNode> {
     //~? if there is no node
     if (null == node) {
       return null;
@@ -60,23 +66,30 @@ class Tree {
     return node;
   }
 
-  printTree(node: BSTNode | null) {
+  _printTree(node: Nullable<BSTNode>) {
     if (node) {
       this.level++;
-      this.printTree(node.right);
+      this._printTree(node.right);
       console.log(' '.repeat(this.level * 4), node.value);
 
-      this.printTree(node.left);
+      this._printTree(node.left);
       this.level--;
     }
   }
+
+  add(...args: number[]) {
+    args.forEach((arg) => this._addNode(this.root, arg));
+  }
+
+  printTree() {
+    this._printTree(this.root);
+  }
 }
 
-const ped = new Tree();
+const ped = new Tree(5, 7, 1);
 console.log(ped);
 
-ped.root = ped.addNode(ped.root, 2);
-ped.root = ped.addNode(ped.root, 3);
-ped.root = ped.addNode(ped.root, 4);
-ped.printTree(ped.root);
+ped.add(2, 3, 4);
+
+ped.printTree();
 console.log(ped);
